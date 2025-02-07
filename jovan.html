@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE NI JOVAN</title>
+    <link href=""stylesheet>
+    <style>
+        :root {
+            --primary-color: #f45865;
+            --secondary-color: #d06497;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #e96464;
+        }
+        .navbar {
+            background-color: var(--primary-color);
+            color: rgb(241, 239, 239);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+        .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid rgb(229, 43, 43);
+            transform: scale(1);
+            animation: pulse 2s infinite;
+        }
+        .navbar-brand:hover img {
+            transform: rotate(360deg);
+        }
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        .navbar-menu a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .card {
+            background-color: rgb(248, 153, 153);
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(44, 42, 42, 0.1);
+            padding: 1.5rem;
+            width: 300px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(192, 182, 182, 0.2);
+        }
+        .card img {
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--primary-color);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @media screen and (max-width: 600px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: var(--primary-color);
+                padding: 1rem;
+            }
+            .navbar-menu.active {
+                display: flex;
+            }
+            .burger-menu {
+                display: block;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="logo.jpg" alt="Logo">
+            <span>My Portfolio</span>
+        </div>
+        <div class="burger-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="navbar-menu">
+            <a href="#about">About</a>
+            <a href="#hobby">Hobby</a>
+            <a href="#crush">Crush</a>
+        </div>
+    </nav>
+
+    <div class="card-container">
+        <div class="card" id="about">
+            <img src="ssss.jpg" alt="About me">
+            <h2>About Me</h2>
+            <p>I'm Jovan Allyn Diaz, 2nd Year BSIT Student</p>
+        </div>
+        <div class="card" id="hobby">
+            <img src="hobbybi.jpg" alt="My Hobby">
+            <h2>My Hobby</h2>
+            <p>I enjoy coding, surfing the net, and playing online games.</p>
+        </div>
+        <div class="card" id="crush">
+            <img src="aiah.jpg" alt="My Crush">
+            <h2>My Crush</h2>
+            <p>This is BINI Aiah </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
